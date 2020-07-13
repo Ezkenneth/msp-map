@@ -591,7 +591,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
 	id: 'mapbox.streets',
-	accessToken: 'pk.eyJ1Ijoic3ZtaWxsaW4iLCJhIjoiY2p6cDJycXI0MDgwdTNvczNmcnR4bGt6ZiJ9.dIaD-KxXAXHWt0nSzvzetQ'
+	accessToken: 'pk.eyJ1IjoiYWRhbWpzaW0iLCJhIjoiY2thdmF0Ym9kMGNhbTJ6a3l5dzl3ZmdrcCJ9.YcSMrFRPTc7hCZgYkJeoSQ'
 }).addTo(map);
 	
     //add zoom control with your options
