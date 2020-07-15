@@ -618,8 +618,6 @@ d3.csv("./data/partnerships_live.csv", function (csv) {
         },
         road: []
     };
-    console.log(`This is L: ${L}`)
-    console.log(L)
     // my server is using Slava's domain because my own IP is blacklisted for phishing :(
     // L.vectorGrid.protobuf('https://health-infobase.canada.ca/src/map-tiles/data/v3/{z}/{x}/{y}.pbf', {
     //         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -645,7 +643,6 @@ d3.csv("./data/partnerships_live.csv", function (csv) {
         zoomOffset: -1,
         accessToken: 'pk.eyJ1IjoiYWRhbWpzaW0iLCJhIjoiY2thdmF0Ym9kMGNhbTJ6a3l5dzl3ZmdrcCJ9.YcSMrFRPTc7hCZgYkJeoSQ'
     }).addTo(map);
-
 
     //add zoom control with your options
     L.control.zoom({
@@ -1075,7 +1072,9 @@ d3.csv("./data/partnerships_live.csv", function (csv) {
         });
 
         $("#age>.bubble").on("click", function () {
-            $(this).hasClass("clicked") ? $(this).removeClass("clicked").addClass("unclicked") : $(this).removeClass("unclicked").addClass("clicked");
+            // $(this).hasClass("clicked") ? $(this).removeClass("clicked").addClass("unclicked") : $(this).removeClass("unclicked").addClass("clicked");
+            // we should only track the state of clicked (true/false), and not add a state "unclicked"
+            $(this).hasClass("clicked") ? $(this).removeClass("clicked") : $(this).addClass("clicked");
 
             var selectedId = $(this).attr("id");
             var indexOfAge = listOfSelectedAges.indexOf(selectedId);
@@ -1190,7 +1189,7 @@ d3.csv("./data/partnerships_live.csv", function (csv) {
                 }
                 return result.found;
             }
-            console.log("test", Object.keys(locateInObject(pageData, 'pageData', this.value)));
+            // console.log("test", Object.keys(locateInObject(pageData, 'pageData', this.value)));
             var checkLocation = {};
             Object.keys(locateInObject(pageData, 'pageData', this.value)).forEach(function (val, i) {
                 var searchResultLocation = val.match(/\d+/)[0];
@@ -1201,8 +1200,8 @@ d3.csv("./data/partnerships_live.csv", function (csv) {
                     return;
                 }
             });
-            console.log("search", searchPageData);
-            console.log("page", pageData);
+            // console.log("search", searchPageData);
+            // console.log("page", pageData);
 
             d3.selectAll('.intersection').remove();
             //circles.transition().duration(1000).attr("r",0).remove();
@@ -1211,7 +1210,7 @@ d3.csv("./data/partnerships_live.csv", function (csv) {
             drawGroups(".leaflet-overlay-pane svg", d3.circleCollision(circles, true));
 
             renderData(searchPageData, colors, xScale);
-            console.log("show results filtered");
+            // console.log("show results filtered");
             if (this.value == "") {
                 $("#results-filtered").hide();
             } else {
